@@ -1,3 +1,20 @@
+<?php
+session_start();
+if(isset($_SESSION['auth_id']) && isset($_SESSION['auth_type'])){
+    $id = $_SESSION['auth_id'];
+    $auth_type = $_SESSION['auth_type'];
+
+    if($auth_type == "Admin"){
+        header('Location: ' . $home . 'admin/index.php');
+    }else if($auth_type == "Driver"){
+        header('Location: ' .$home . 'driver/index.php');
+    }else if($auth_type == "Passenger"){
+        header('Location: ' . $home . 'passenger/index.php');
+    }
+    
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +33,6 @@
     <hr>
     <div class="container">
         <?php
-        session_start();
         if (isset($_SESSION['status'])) {
             echo "<h4 align='center' style='color:gray;'>" . $_SESSION['status'] . "</h4>";
             unset($_SESSION['status']);
@@ -31,7 +47,7 @@
 
             </div>
             <div class="col-md-6 mt-5">
-                <form action="index.php" method="post">
+                <form action="backend/login.php" method="post">
                     <div class="mb-3">
                         <label for="username" class="col-sm-2 col-form-label">Username:</label><br>
 
@@ -39,9 +55,9 @@
 
                     </div>
                     <div class="mb-3">
-                        <label for="userpassword" class="col-sm-2 col-form-label">Password:</label>
+                        <label for="password" class="col-sm-2 col-form-label">Password:</label>
 
-                        <input type="password" class="form-control" id="userpassword" name="userpassword">
+                        <input type="password" class="form-control" id="password" name="password">
 
                     </div>
                     <div align="center">
