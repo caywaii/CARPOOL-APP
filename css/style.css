@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Montserrat:wght@300;400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+label{
+    font-family:'Mochiy Pop P One';
+    font-size:550%
+}
+#title{
+    font-family:'Mochiy Pop P One';
+    font-weight: bold;
+    font-size:550%
+}
+.introduction{
+    font-family:'Mochiy Pop P One';
+    font-weight: bold;
+    font-size:500%
+}
+
+.introduction2{
+    font-family:'Mochiy Pop P One';
+    font-weight: bold;
+    font-size:500%;
+}
+
+.name{
+    font-family:'Mochiy Pop P One';
+    font-weight: bold;
+    color: rgb(216, 112, 121); 
+}
+
+.description{
+    font-family: 'Montserrat';
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.engaging2{
+    font-family: 'Montserrat';
+    font-size: 150%;
+    font-weight: bold;
+    text-decoration-line:underline;
+    color:rgb(241, 171, 31);
+}
+
+.driver-option{
+    font-family:'Montserrat';
+    font-weight: bold;
+    font-size:300%
+}
