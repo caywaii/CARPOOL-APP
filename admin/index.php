@@ -27,6 +27,7 @@ include '../backend/backend_admin/declaredvb.php';
                     </div>
                 </div>
 
+                <!-- Driver Status -->
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Driver Status</h5>
@@ -34,6 +35,16 @@ include '../backend/backend_admin/declaredvb.php';
                         <a href="driver_id/pending.php" class="btn btn-warning">Verify</a>
                     </div>
                 </div>
+
+                <!-- Verified Users -->
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">User Verify Status</h5>
+                        <p class="card-text">You may see all the verified users on the Carpool App.</p>
+                        <a href="user_list/user_verified.php" class="btn btn-secondary">Look</a>
+                    </div>
+                </div>
+
 
             </div>
             <br>
