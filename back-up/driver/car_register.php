@@ -1,12 +1,6 @@
 <?php
 include '../includes/connection.php';
-include '../includes/auth.php';
 session_start();
-
-if (isset($_SESSION['status'])) {
-    echo "<h4 align='center' style='color:gray;'>" . $_SESSION['status'] . "</h4>";
-    unset($_SESSION['status']);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

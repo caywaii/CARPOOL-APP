@@ -9,7 +9,7 @@ require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-if($_POST['submit']){
+if ($_POST['submit']) {
     $username = $_POST['username'];
     $email = $_POST['useremail'];
     $password = $_POST['userpassword'];
@@ -30,40 +30,28 @@ if($_POST['submit']){
     $sql = "SELECT * FROM users WHERE uEmail ='$email'";
     $result = $conn->query($sql);
 
-    if($result->num_rows > 0){
+    if ($result->num_rows > 0) {
         $_SESSION['status'] = "Email Already Exist!";
         header('Location:' . $home . '/registration.php');
         return;
     }
 
     //Register User in Users Table
-    if($idtype === "driver"){
-    $sqlusersinsertion = "INSERT INTO users (uUserType, uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince, uGCashNum) 
-    VALUES ('Driver', '$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province', '$gcash');";
-    $usersinserted = $conn->query($sqlusersinsertion);
-
-    }else{
     $sqlusersinsertion = "INSERT INTO users (uUserType, uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince, uGCashNum) 
     VALUES ('Passenger', '$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province', '$gcash');";
     $usersinserted = $conn->query($sqlusersinsertion);
-    }
-    
-   
-    //Inserting Passenger or Driver Table
+
+
+
+    //Inserting Passenger
     $sql = "SELECT uID FROM users WHERE uEmail='$email' AND uPassword='$password'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $userID = $row['uID'];
 
-    if($idtype === "driver"){
-        $sqldriverinsertion = "INSERT INTO driver (uID, dLicense)
-        VALUES ('$userID', '$idnum');";
-        $driversinserted = $conn->query($sqldriverinsertion);
-    }else{
-        $sqlpassengerinsertion = "INSERT INTO passenger (uID, pTypeID, pNumberID)
-        VALUES ('$userID', '$idtype','$idnum');";
-        $passengerinserted = $conn->query($sqlpassengerinsertion);
-    }
+    $sqlpassengerinsertion = "INSERT INTO passenger (uID, pTypeID, pNumberID) VALUES ('$userID', '$idtype','$idnum');";
+    $passengerinserted = $conn->query($sqlpassengerinsertion);
+
 
 
     //Mailing Message
@@ -79,12 +67,12 @@ if($_POST['submit']){
     <body>
     <h2>Welcome!</h2>
     <p>Please Verify your Email by cliking the link down below</p>
-    <a id="verify" href="' .$link . '">Click this Link!</a>
+    <a id="verify" href="' . $link . '">Click this Link!</a>
     <p>Thank You!</p>
     </body>
     </html>
     ';
-    
+
 
     $mail = new PHPMailer(true);
     $mail->isSMTP();

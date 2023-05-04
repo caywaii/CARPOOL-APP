@@ -8,7 +8,7 @@ if ($_POST['login']) {
     $password = $_POST['password'];
 
     // Checks the Email & Password
-    $sql = "SELECT uID, verify_status, uUserType  FROM users WHERE uUsername='$username' AND uPassword='$password'";
+    $sql = "SELECT uID, verify_status, uUserType FROM users WHERE uUsername='$username' AND uPassword='$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -24,13 +24,13 @@ if ($_POST['login']) {
                 $_SESSION['auth_id'] =  $row['uID'];
                 $_SESSION['auth_type'] =  $row['uUserType'];
 
-                if($row['uUserType'] == "Admin"){
+                if($_SESSION['auth_type'] == "Admin"){
                     header('Location: ' . $home . '/admin/index.php');
                     return;
-                }else if($row['uUserType'] == "Driver"){
+                }else if($_SESSION['auth_type'] == "Driver"){
                     header('Location: ' .$home . '/driver/index.php');
                     return;
-                }else if($row['uUserType'] == "Passenger"){
+                }else if($_SESSION['auth_type'] == "Passenger"){
                     header('Location: ' . $home . '/passenger/index.php');
                     return;
                 }

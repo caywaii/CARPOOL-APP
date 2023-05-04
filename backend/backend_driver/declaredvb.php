@@ -1,10 +1,6 @@
 <?php 
 include '../includes/connection.php';
-session_start();
-if(isset($_SESSION['auth_id'])){
-    $id = $_SESSION['auth_id'];
 
-    //Retrieves User
     $sql = "SELECT * FROM users INNER JOIN driver ON users.uID = driver.uID WHERE users.uID = $id";
     $result = $conn->query($sql);
 
@@ -40,9 +36,5 @@ if(isset($_SESSION['auth_id'])){
         header('Location: ' .$home .'/index.php');
         return;
     }
-}else{
-    $_SESSION['status'] = "You need to log in first to access it!";
-    header('Location: ' .$home. '/index.php');
-    return;
-}
+
 ?>

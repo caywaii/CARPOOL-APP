@@ -19,4 +19,5 @@ $conn->close();
 
 $_SESSION['status'] = "Your Password is now updated successfully";
 header('Location: ' . $home . '/driver/profile.php');
+exit;
 ?>
