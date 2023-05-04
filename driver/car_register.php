@@ -121,7 +121,7 @@ $result = $conn->query($sql);
                             <td class="text-center">
 
                                 <?php
-                                if ($row['verify_car'] == 1) :
+                                if ($row['verify_car'] == 3) :
                                 ?>
                                     <p class="text-danger align-center"> Rejected </p>
 
@@ -129,7 +129,8 @@ $result = $conn->query($sql);
                                     Pending
 
                                 <?php else : ?>
-                                    <a class="btn btn-primary"> Create Route </a>
+                                    <!-- <a class="btn btn-primary"> Create Route </a> -->
+                                    Approved
 
                                 <?php endif; ?>
                         </tr>
