@@ -123,7 +123,7 @@ $result = $conn->query($sql);
                                 <?php
                                 if ($row['verify_car'] == 3) :
                                 ?>
-                                    <p class="text-danger align-center"> Rejected </p>
+                                    Rejected 
 
                                 <?php elseif ($row['verify_car'] == 0) : ?>
                                     Pending
