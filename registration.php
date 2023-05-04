@@ -26,22 +26,22 @@
             <!-- Username -->
             <div class="col-md-4">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" class="form-control" required id="username" name="username">
             </div>
             <!-- Password -->
             <div class="col-md-4">
                 <label for="userpassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="userpassword" name="userpassword">
+                <input type="password" class="form-control" required id="userpassword" name="userpassword">
             </div>
             <!-- Email -->
             <div class="col-12">
                 <label for="useremail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="useremail" name="useremail">
+                <input type="email" class="form-control" required id="useremail" name="useremail">
             </div>
             <!-- First Name -->
             <div class="col-md-4">
                 <label for="firstname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstname" name="firstname">
+                <input type="text" class="form-control" required id="firstname" name="firstname">
             </div>
             <!-- Middle Name -->
             <div class="col-md-4">
@@ -51,23 +51,23 @@
             <!-- Last Name -->
             <div class="col-md-4">
                 <label for="lastname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastname" name="lastname">
+                <input type="text" class="form-control" required id="lastname" name="lastname">
             </div>
             <!-- Contact Number -->
             <div class="col-md-5">
                 <label for="contact" class="form-label">Contact Number</label>
-                <input type="text" class="form-control" id="contact" name="contact" minlength="11" maxlength="11">
+                <input type="text" class="form-control" required id="contact" name="contact" minlength="11" maxlength="11">
             </div>
             <!-- Gcash Number -->
             <div class="col-md-5">
                 <label for="gcash" class="form-label">GCash Number</label>
-                <input type="text" class="form-control" id="gcash" name="gcash" minlength="11" maxlength="11">
+                <input type="text" class="form-control" required id="gcash" name="gcash" minlength="11" maxlength="11">
             </div>
 
             <!-- ID TYPE -->
             <div class="col-md-5">
                 <label for="id_type" class="form-label">Type of IDs</label>
-                <select class="form-select" name="id_type" id="id_type" aria-label="Default select example">
+                <select class="form-select" required name="id_type" id="id_type" aria-label="Default select example">
                     <option value="" disabled>Choose One</option>
                     <option value="National ID">National ID</option>
                     <option value="driver">Drivers License</option>
@@ -76,7 +76,7 @@
 
             <div class="col-md-5">
                 <label for="id_number" class="form-label">ID Number</label>
-                <input type="text" class="form-control" id="id_number" name="id_number">
+                <input type="text" class="form-control" required id="id_number" name="id_number">
             </div>
             <hr>
             <h3 align="center">Address</h3>
@@ -84,22 +84,22 @@
             <!-- Street -->
             <div class="col-md-3">
                 <label for="street" class="form-label">Street</label>
-                <input type="text" class="form-control" id="street" name="street">
+                <input type="text" class="form-control" required id="street" name="street">
             </div>
             <!-- Barangay -->
             <div class="col-md-3">
                 <label for="barangay" class="form-label">Barangay</label>
-                <input type="text" class="form-control" id="barangay" name="barangay">
+                <input type="text" class="form-control" required id="barangay" name="barangay">
             </div>
             <!-- City -->
             <div class="col-md-3">
                 <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city" name="city">
+                <input type="text" class="form-control" required id="city" name="city">
             </div>
             <!-- Province -->
             <div class="col-md-3">
                 <label for="province" class="form-label">Province</label>
-                <input type="text" class="form-control" id="province" name="province">
+                <input type="text" class="form-control" required id="province" name="province">
             </div>
             <!-- Button -->
             <div class="col-12">

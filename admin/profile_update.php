@@ -1,5 +1,5 @@
 <?php 
-include '../backend/backend_driver/declaredvb.php';
+include '../backend/backend_admin/declaredvb.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@ include '../backend/backend_driver/declaredvb.php';
                 <input type="text" class="form-control" id="userpassword" name="userpassword" value="<?= $password ?>">
             </div>
             <!-- Email -->
-            <div class="col-md-4">
+            <div class="col-12">
                 <label for="useremail" class="form-label">Email</label>
                 <input type="email" class="form-control" id="useremail" name="useremail"  readonly  value="<?= $email ?>" style="background-color:#d3d3d3;">
             </div>
@@ -39,20 +39,26 @@ include '../backend/backend_driver/declaredvb.php';
             </div>
            
             <!-- Contact Number -->
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <label for="contact" class="form-label">Contact Number</label>
                 <input type="text" class="form-control" id="contact" name="contact" minlength="11" maxlength="11" readonly value ="<?= $contact?>" style="background-color:#d3d3d3;">
             </div>
             <!-- Gcash Number -->
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <label for="gcash" class="form-label">GCash Number</label>
                 <input type="text" class="form-control" id="gcash" name="gcash" minlength="11" maxlength="11" readonly value ="<?= $gcash?>" style="background-color:#d3d3d3;">
             </div>
 
-            <div class="col-md-4">
+            <!-- ID TYPE
+            <div class="col-md-5">
+                <label for="id_type" class="form-label">Type of IDs</label>
+                <input type="text" class="form-control" id="gcash" name="gcash" minlength="11" maxlength="11" readonly value ="<?= $id_type?>" style="background-color:#d3d3d3;">
+            </div>
+
+            <div class="col-md-5">
                 <label for="id_number" class="form-label">ID Number</label>
                 <input type="text" class="form-control" id="id_number" name="id_number" readonly value ="<?= $id_num?>" style="background-color:#d3d3d3;">
-            </div>
+            </div> -->
             <div class="col-md-12">
                 <label for="firstname" class="form-label">Address</label>
                 <input type="text" class="form-control" id="firstname" name="firstname"  readonly value ="<?= $street . ' ' . $barangay . ' ' . $city . ',' . $province?>" style="background-color:#d3d3d3;">

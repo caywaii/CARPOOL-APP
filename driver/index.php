@@ -30,7 +30,7 @@ include '../backend/backend_driver/declaredvb.php';
                 <div class="card-body">
                     <h5 class="card-title">Car Register</h5>
                     <p class="card-text">You may register your car and wait for the approval.</p>
-                    <a href="profile.php" class="btn btn-warning">Register</a>
+                    <a href="car_register.php" class="btn btn-warning">Register</a>
                 </div>
             </div>
 
