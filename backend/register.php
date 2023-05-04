@@ -36,12 +36,20 @@ if($_POST['submit']){
         return;
     }
 
-    //Inserting Register Users
-    $sqlusersinsertion = "INSERT INTO users (uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince, uGCashNum) 
-        VALUES ('$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province', '$gcash');";
-        $usersinserted = $conn->query($sqlusersinsertion);
+    //Register User in Users Table
+    if($idtype === "driver"){
+    $sqlusersinsertion = "INSERT INTO users (uUserType, uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince, uGCashNum) 
+    VALUES ('Driver', '$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province', '$gcash');";
+    $usersinserted = $conn->query($sqlusersinsertion);
 
-    //Inserting Passenger or Driver
+    }else{
+    $sqlusersinsertion = "INSERT INTO users (uUserType, uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince, uGCashNum) 
+    VALUES ('Passenger', '$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province', '$gcash');";
+    $usersinserted = $conn->query($sqlusersinsertion);
+    }
+    
+   
+    //Inserting Passenger or Driver Table
     $sql = "SELECT uID FROM users WHERE uEmail='$email' AND uPassword='$password'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -97,4 +105,3 @@ if($_POST['submit']){
     $_SESSION['status'] = "Check your Email for Verification";
     header('Location: ' . $home . '/index.php');
 }
-?>

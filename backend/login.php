@@ -2,7 +2,7 @@
 session_start();
 include '../connection.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_POST['login']) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     return;
                 }else if($row['uUserType'] == "Driver"){
                     header('Location: ' .$home . '/driver/index.php');
+                    return;
                 }else if($row['uUserType'] == "Passenger"){
                     header('Location: ' . $home . '/passenger/index.php');
                     return;
