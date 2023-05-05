@@ -19,7 +19,7 @@ include '../backend/backend_admin/declaredvb.php';
     <div class="container">
         <div class="container">
             <div class="row g-3">
-                <div class="card" style="width: 18rem;">
+                <div class="card m-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Profile</h5>
                         <p class="card-text">You may update and check your profile anytime.</p>
@@ -28,7 +28,7 @@ include '../backend/backend_admin/declaredvb.php';
                 </div>
 
                  <!-- Verified Users -->
-                 <div class="card" style="width: 18rem;">
+                 <div class="card m-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">User Verify Status</h5>
                         <p class="card-text">You may see all the verified users on the Carpool App.</p>
@@ -37,7 +37,7 @@ include '../backend/backend_admin/declaredvb.php';
                 </div>
 
                 <!-- Driver Status -->
-                <div class="card" style="width: 18rem;">
+                <div class="card m-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Driver Status</h5>
                         <p class="card-text">You may now Reject or Approve Drivers.</p>
@@ -46,7 +46,7 @@ include '../backend/backend_admin/declaredvb.php';
                 </div>
 
                 <!-- Car Register -->
-                <div class="card" style="width: 18rem;">
+                <div class="card m-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Car Registration</h5>
                         <p class="card-text">You may now Reject or Approve Registered Cars.</p>

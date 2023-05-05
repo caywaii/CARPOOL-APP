@@ -56,7 +56,6 @@ $row = $result->fetch_assoc();
                 <input type="text" class="form-control" id="firstname" name="firstname"  readonly value="<?= $row['uStreet'] . ' ' . $row['uBarangay'] . ' ' . $row['uCity'] . ' ' . $row['uProvince']?>">
             </div>
             <div class="col-md-5">
-            <input type="submit" name="register" class="btn btn-primary" value="Update Password">
             <a href="user_verified.php" class="btn btn-warning">Back</a>
             </div>
         </form>

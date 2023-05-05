@@ -47,7 +47,7 @@ if($result->num_rows > 0){
     <hr>
     <div class="container">
         <div class="row g-3">
-            <div class="card" style="width: 18rem;">
+            <div class="card m-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Profile</h5>
                     <p class="card-text">You may update and check your profile anytime.</p>
@@ -55,7 +55,7 @@ if($result->num_rows > 0){
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
+            <div class="card m-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Car Register</h5>
                     <p class="card-text">You may register your car and wait for the approval.</p>
