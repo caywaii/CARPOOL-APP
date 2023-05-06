@@ -20,7 +20,7 @@
     <h1>Carpool App Registration Form</h1>
     <hr>
     <div class="container"> <!-- Registration Form -->
-        <h3 align="center">Personal Details</h3>
+        <h3 align="center">Personal Information</h3>
         <hr>
         <form action="backend/register.php" method="post" class="row g-3">
             <!-- Username -->
@@ -79,7 +79,7 @@
                 <input type="text" class="form-control" required id="id_number" name="id_number">
             </div>
             <hr>
-            <h3 align="center">Address</h3>
+            <h3 align="center">Address Information</h3>
             <hr>
             <!-- Street -->
             <div class="col-md-3">
