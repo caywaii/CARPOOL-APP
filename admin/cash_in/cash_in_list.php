@@ -2,8 +2,7 @@
 include '../../includes/connection.php';
 include '../../includes/auth.php';
 // Retrieves Pending Car Approval
-$sql = "SELECT * FROM passenger INNER JOIN users ON passenger.uID = users.uID
-WHERE pd_idType = 'driver' AND verify_driver = 0;";
+$sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE bill_status = 0;";
 $result = $conn->query($sql);
 ?>
 
@@ -22,7 +21,7 @@ $result = $conn->query($sql);
 <body>
     <hr>
   
-        <h3 align="center"> Driver Status </h3>
+        <h3 align="center"> Transaction Status </h3>
        
         <?php
         if (isset($_SESSION['status'])) {
@@ -40,8 +39,9 @@ $result = $conn->query($sql);
                 <tr>
                     <th scope="col" class="text-center">#</th>
                     <th scope="col" class="text-center">Full Name</th>
-                    <th scope="col" class="text-center">Driver License No</th>
-                    <th scope="col" class="text-center">Actions</th>
+                    <th scope="col" class="text-center">Amount</th>
+                    <th scope="col" class="text-center">GCash Number</th>
+                    <th scope="col" class="text-center">GCash Reference</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,10 +54,12 @@ $result = $conn->query($sql);
                         <tr>
                             <th class="text-center"> <?= $x ?> </th>
                             <td class="text-center"> <?= $row['uFirstName'] . " " . $row['uLastName'] ?> </td>
-                            <td class="text-center"> <?= $row['pd_idNumber'] ?> </td>
+                            <td class="text-center"> <?= $row['billAmount'] ?> </td>
+                            <td class="text-center"> <?= $row['billGCashNum'] ?> </td>
+                            <td class="text-center"> <?= $row['billGCashReference'] ?> </td>
                             <td class="text-center">
-                                <a href="id_approve.php?pass_id=<?= $row['pdID'] ?>" class="btn btn-primary"> Approve </a>
-                                <a href="id_reject.php?pass_id=<?= $row['pdID'] ?>" class="btn btn-danger"> Reject </a>
+                                <a href="id_approve.php?billing_id=<?= $row['billID'] ?>" class="btn btn-primary"> Approve </a>
+                                <a href="id_reject.php?billing_id=<?= $row['billID'] ?>" class="btn btn-danger"> Reject </a>
                             </td>
                         </tr>
                 <?php

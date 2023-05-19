@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../includes/connection.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -18,14 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result = $conn->query($sql);
 
     $row = $result->fetch_assoc();
-    if ($row['verify_status'] === 1) {
+    if ($row['verify_user'] === 1) {
         $_SESSION['status'] = "Email has already been verified!";
-        header('Location: index.php');
+        header('Location: ' . $home . '/index.php');
         return;
     }
 
     //UPDATE
-    $update_query = "UPDATE users SET verify_status='1' WHERE uEmail = '$email'";
+    $update_query = "UPDATE users SET verify_user='1' WHERE uEmail = '$email'";
     $result = $conn->query($update_query);
 
     $_SESSION['status'] = "Your email is now verified! You may now login to your account.";

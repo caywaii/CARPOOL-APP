@@ -1,7 +1,5 @@
 <?php
-
 include '../../includes/connection.php';
-session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -13,7 +11,7 @@ $pass_id = $_GET['pass_id'];
 
 //Selecting Users
 
-$sql = "SELECT * FROM users INNER JOIN passenger ON users.uID = passenger.uID WHERE passenger.pID = '$pass_id'";
+$sql = "SELECT * FROM users INNER JOIN passenger ON users.uID = passenger.uID WHERE passenger.pdID = '$pass_id'";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
@@ -31,17 +29,16 @@ if($result->num_rows > 0){
         $barangay = $row['uBarangay'];
         $city = $row['uCity'];
         $province = $row['uProvince'];
-        $gcash = $row['uGCashNum'];
         
     }
 }
 
 // Prepared Statement & Binding (Avoid SQL Injections)
-$stmnt = $conn->prepare("UPDATE passenger SET verify_driver = '1' WHERE pID='$pass_id'");
+$stmnt = $conn->prepare("UPDATE passenger SET verify_driver = '1' WHERE pdID='$pass_id'");
 $stmnt->execute();
 
 // Update User Type in Users Table
-$stmnt = $conn->prepare("UPDATE users INNER JOIN passenger ON passenger.uID = users.uID SET uUserType = 'Driver' WHERE pID = '$pass_id'");
+$stmnt = $conn->prepare("UPDATE users INNER JOIN passenger ON passenger.uID = users.uID SET uUserType = 'Driver' WHERE pdID = '$pass_id'");
 $stmnt->execute();
 $stmnt->close();
 $conn->close();

@@ -1,18 +1,13 @@
-<?php 
+<?php
 include '../includes/connection.php';
+include_once '../includes/auth.php';
 
-    $sql = "SELECT * FROM users INNER JOIN driver ON users.uID = driver.uID WHERE users.uID = $id";
+    //Retrieves User
+    $sql = "SELECT * FROM users INNER JOIN passenger ON users.uID = passenger.uID WHERE users.uID = $id";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-
-            //Check if Account is Verified or not Verified
-            if($row['verify_status'] == 0){
-                $_SESSION['status'] = "Account still not Verified!";
-                header('Location: ' . $home . '/index.php');
-                return;
-            }
 
             //Declared Variables
             $username = $row['uUsername'];
@@ -26,9 +21,9 @@ include '../includes/connection.php';
             $barangay = $row['uBarangay'];
             $city = $row['uCity'];
             $province = $row['uProvince'];
-            $gcash = $row['uGCashNum'];
-            
-            $id_num = $row['dLicense'];
+            $userBalance = $row['uBalance'];
+            $id_type = $row['pd_idType'];
+            $id_num = $row['pd_idNumber'];
 
         }
     } else {

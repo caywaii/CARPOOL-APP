@@ -1,8 +1,6 @@
 <?php 
 include '../includes/connection.php';
-session_start();
-if(isset($_SESSION['auth_id'])){
-    $id = $_SESSION['auth_id'];
+include_once '../includes/auth.php';
 
     //Retrieves User
     $sql = "SELECT * FROM users WHERE uID = $id";
@@ -10,13 +8,6 @@ if(isset($_SESSION['auth_id'])){
 
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-
-            //Check if Account is Verified or not Verified
-            if($row['verify_status'] == 0){
-                $_SESSION['status'] = "Account still not Verified!";
-                header('Location: ' . $home . '/index.php');
-                return;
-            }
 
             //Declared Variables
             $username = $row['uUsername'];
@@ -30,18 +21,12 @@ if(isset($_SESSION['auth_id'])){
             $barangay = $row['uBarangay'];
             $city = $row['uCity'];
             $province = $row['uProvince'];
-            $gcash = $row['uGCashNum'];
-            
-        
+            $userBalance = $row['uBalance'];
+
         }
     } else {
         $_SESSION['status'] = 'Your Profile is nowhere to be found!';
         header('Location: ' .$home .'/index.php');
         return;
     }
-}else{
-    $_SESSION['status'] = "You need to log in first to access it!";
-    header('Location: ' .$home. '/index.php');
-    return;
-}
 ?>

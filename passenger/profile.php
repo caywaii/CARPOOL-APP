@@ -1,5 +1,5 @@
 <?php
-include '../backend/backend_passenger/declaredvb.php';
+include '../backend/passenger/declaredvb.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +37,10 @@ include '../backend/backend_passenger/declaredvb.php';
                 <tr>
                     <th scope="row">Address:</th>
                     <td><?= $street . ' ' . $barangay . ' ' . $city . ',' . $province?></td>
+                </tr>
+                <tr>
+                    <th scope="row">Total Tickets:</th>
+                    <td><?= $userBalance ?></td>
                 </tr>
             </tbody>
         </table>

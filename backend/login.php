@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../includes/connection.php';
 
 if ($_POST['login']) {
@@ -8,14 +7,14 @@ if ($_POST['login']) {
     $password = $_POST['password'];
 
     // Checks the Email & Password
-    $sql = "SELECT uID, verify_status, uUserType FROM users WHERE uUsername='$username' AND uPassword='$password'";
+    $sql = "SELECT uID, verify_user, uUserType FROM users WHERE uUsername='$username' AND uPassword='$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
 
             // Check if the Account is Verified or Not
-            if ($row['verify_status'] == 0) {
+            if ($row['verify_user'] == 0) {
                 $_SESSION['status'] = "Account still not Verified!";
                 header('Location: ' . $home . '/index.php');
                 return;

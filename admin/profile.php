@@ -1,5 +1,5 @@
 <?php
-include '../backend/backend_admin/declaredvb.php';
+include '../backend/admin/declaredvb.php';
 ?>
 
 <!DOCTYPE html>

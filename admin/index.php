@@ -1,5 +1,5 @@
 <?php
-include '../backend/backend_admin/declaredvb.php';
+include '../backend/admin/declaredvb.php';
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +51,24 @@ include '../backend/backend_admin/declaredvb.php';
                         <h5 class="card-title">Car Registration</h5>
                         <p class="card-text">You may now Reject or Approve Registered Cars.</p>
                         <a href="car_status/pending.php" class="btn btn-success">Verify</a>
+                    </div>
+                </div>
+
+                <!-- Verify Transaction Type -->
+                <div class="card m-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Verify Transaction</h5>
+                        <p class="card-text">You may now assure the Transactions of the users.</p>
+                        <a href="cash_in/cash_in_list.php" class="btn btn-primary">Verify</a>
+                    </div>
+                </div>
+
+                <!-- Transaction Reporty -->
+                <div class="card m-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Transaction Report</h5>
+                        <p class="card-text">See all the Transaction made by the Passengers/Driver.</p>
+                        <a href="transaction_report.php" class="btn btn-warning">Look</a>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,6 @@
 <?php
 include '../includes/connection.php';
-session_start()
-;
 $user_id = $_SESSION['auth_id'];
-
 $password = $_POST['userpassword'];
 
 

@@ -54,18 +54,12 @@
                 <input type="text" class="form-control" required id="lastname" name="lastname">
             </div>
             <!-- Contact Number -->
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="contact" class="form-label">Contact Number</label>
                 <input type="text" class="form-control" required id="contact" name="contact" minlength="11" maxlength="11">
             </div>
-            <!-- Gcash Number -->
-            <div class="col-md-5">
-                <label for="gcash" class="form-label">GCash Number</label>
-                <input type="text" class="form-control" required id="gcash" name="gcash" minlength="11" maxlength="11">
-            </div>
-
             <!-- ID TYPE -->
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="id_type" class="form-label">Type of IDs</label>
                 <select class="form-select" required name="id_type" id="id_type" aria-label="Default select example">
                     <option value="" disabled>Choose One</option>
@@ -74,7 +68,7 @@
                 </select>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="id_number" class="form-label">ID Number</label>
                 <input type="text" class="form-control" required id="id_number" name="id_number">
             </div>

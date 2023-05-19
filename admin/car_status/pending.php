@@ -1,8 +1,8 @@
 <?php
 include '../../includes/connection.php';
-session_start();
+include '../../includes/auth.php';
 // Retrieves Pending Car Approval
-$sql = "SELECT * FROM cardetails INNER JOIN passenger ON passenger.pID = cardetails.driverID INNER JOIN users ON users.uID = passenger.uID WHERE verify_car = 0;";
+$sql = "SELECT * FROM cardetails INNER JOIN passenger ON passenger.pdID = cardetails.pdID INNER JOIN users ON users.uID = passenger.uID WHERE verify_car = 0;";
 $result = $conn->query($sql);
 ?>
 

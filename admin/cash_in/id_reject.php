@@ -1,6 +1,7 @@
 <?php
 
 include '../../includes/connection.php';
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -8,11 +9,11 @@ require '../../backend/phpmailer/src/Exception.php';
 require '../../backend/phpmailer/src/PHPMailer.php';
 require '../../backend/phpmailer/src/SMTP.php';
 
-$pass_id = $_GET['pass_id'];
+$billing_id = $_GET['billing_id'];
 
 //Selecting Users
 
-$sql = "SELECT * FROM users INNER JOIN passenger ON users.uID = passenger.uID WHERE passenger.pdID = '$pass_id'";
+$sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE billing.billID = '$billing_id'";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
@@ -30,12 +31,14 @@ if($result->num_rows > 0){
         $barangay = $row['uBarangay'];
         $city = $row['uCity'];
         $province = $row['uProvince'];
+        $gcash = $row['uGCashNum'];
         
+        $amount = $row['billAmount'];
     }
 }
 
 // Prepared Statement & Binding (Avoid SQL Injections)
-$stmnt = $conn->prepare("UPDATE passenger SET verify_driver = '3' WHERE pdID='$pass_id'");
+$stmnt = $conn->prepare("UPDATE billing SET bill_status = '3' WHERE billID='$billing_id'");
 $stmnt->execute();
 $stmnt->close();
 $conn->close();
@@ -52,7 +55,7 @@ $conn->close();
  </head>
  <body>
  <h2>Welcome!</h2>
- <p>We are so sorry to say that your Drivers ID is rejected! You will stay as a Passenger VROOM VROOM</p>
+ <p>Your Cashed In Transaction is now Verified by the Admin! Please do refresh or log in again to see</p>
  <a id="verify" href="' . $link . '">Click this Link!</a>
  <p>Thank You!</p>
  </body>
@@ -76,8 +79,8 @@ $conn->close();
  $mail->Body = $message;
  $mail->send();
 
-$_SESSION['status'] = "Succesfully Rejected";
-header('Location: ' . $home . '/admin/driver_id/pending.php');
+$_SESSION['status'] = "Succesfully Verified";
+header('Location: ' . $home . '/admin/cash_in/cash_in_list.php');
 
 
 

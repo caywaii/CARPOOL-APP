@@ -1,5 +1,5 @@
 <?php 
-include '../backend/backend_passenger/declaredvb.php';
+include '../backend/passenger/declaredvb.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,23 +39,18 @@ include '../backend/backend_passenger/declaredvb.php';
             </div>
            
             <!-- Contact Number -->
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="contact" class="form-label">Contact Number</label>
                 <input type="text" class="form-control" id="contact" name="contact" minlength="11" maxlength="11" readonly value ="<?= $contact?>" style="background-color:#d3d3d3;">
             </div>
-            <!-- Gcash Number -->
-            <div class="col-md-5">
-                <label for="gcash" class="form-label">GCash Number</label>
-                <input type="text" class="form-control" id="gcash" name="gcash" minlength="11" maxlength="11" readonly value ="<?= $gcash?>" style="background-color:#d3d3d3;">
-            </div>
-
+           
             <!-- ID TYPE -->
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="id_type" class="form-label">Type of IDs</label>
                 <input type="text" class="form-control" id="gcash" name="gcash" minlength="11" maxlength="11" readonly value ="<?= $id_type?>" style="background-color:#d3d3d3;">
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="id_number" class="form-label">ID Number</label>
                 <input type="text" class="form-control" id="id_number" name="id_number" readonly value ="<?= $id_num?>" style="background-color:#d3d3d3;">
             </div>

@@ -1,37 +1,5 @@
 <?php 
-session_start();
-include_once '../includes/auth.php';
-include '../includes/connection.php';
-
-$sql = "SELECT * FROM users INNER JOIN passenger ON users.uID = passenger.uID WHERE users.uID = $id";
-$result = $conn->query($sql);
-
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-
-        //Check if Account is Verified or not Verified
-        if($row['verify_status'] == 0){
-            $_SESSION['status'] = "Account still not Verified!";
-            header('Location: ' . $home . '/index.php');
-            return;
-        }
-
-        //Declared Variables
-        $username = $row['uUsername'];
-        $email = $row['uEmail'];
-        $password = $row['uPassword'];
-        $fname = $row['uFirstName'];
-        $mname = $row['uMiddleName'];
-        $lname = $row['uLastName'];
-        $contact = $row['uContact'];
-        $street = $row['uStreet'];
-        $barangay = $row['uBarangay'];
-        $city = $row['uCity'];
-        $province = $row['uProvince'];
-        $gcash = $row['uGCashNum'];
-        
-    }
-}
+include '../backend/passenger/declaredvb.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

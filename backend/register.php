@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../includes/connection.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -21,7 +20,6 @@ if ($_POST['submit']) {
     $province = $_POST['province'];
     $city = $_POST['city'];
     $contact = $_POST['contact'];
-    $gcash = $_POST['gcash'];
     $idtype = $_POST['id_type'];
     $idnum = $_POST['id_number'];
 
@@ -37,8 +35,8 @@ if ($_POST['submit']) {
     }
 
     //Register User in Users Table
-    $sqlusersinsertion = "INSERT INTO users (uUserType, uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince, uGCashNum) 
-    VALUES ('Passenger', '$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province', '$gcash');";
+    $sqlusersinsertion = "INSERT INTO users (uUserType, uUsername, uPassword, uEmail, uFirstName, uMiddleName, uLastName, uContact, uStreet, uBarangay, uCity, uProvince) 
+    VALUES ('Passenger', '$username', '$password', '$email', '$fname', '$mname', '$lname', '$contact', '$street', '$barangay', '$city', '$province');";
     $usersinserted = $conn->query($sqlusersinsertion);
 
 
@@ -49,7 +47,7 @@ if ($_POST['submit']) {
     $row = $result->fetch_assoc();
     $userID = $row['uID'];
 
-    $sqlpassengerinsertion = "INSERT INTO passenger (uID, pTypeID, pNumberID) VALUES ('$userID', '$idtype','$idnum');";
+    $sqlpassengerinsertion = "INSERT INTO passenger (uID, pd_idType, pd_idNumber) VALUES ('$userID', '$idtype','$idnum');";
     $passengerinserted = $conn->query($sqlpassengerinsertion);
 
 

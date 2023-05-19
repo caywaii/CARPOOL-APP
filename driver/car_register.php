@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../includes/connection.php';
 include '../includes/auth.php';
 
@@ -7,9 +6,9 @@ $id = $_SESSION['auth_id'];
 $sqlpassenger = "SELECT * FROM users INNER JOIN passenger ON users.uID = passenger.uID WHERE users.uID ='$id'";
 $resultpassenger = $conn->query($sqlpassenger);
 $rowpassenger = $resultpassenger->fetch_assoc();
-$user_id = $rowpassenger['pID'];
+$user_id = $rowpassenger['pdID'];
 
-$sql = "SELECT * FROM cardetails WHERE driverID = '$user_id';";
+$sql = "SELECT * FROM cardetails WHERE pdID = '$user_id';";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -40,9 +39,13 @@ $result = $conn->query($sql);
         <!-- Car Registration -->
         <form action="../backend/car_register.php" method="post">
             <div class="row">
-                <div class="mb-3 col-4">
+                <div class="mb-3 col-12">
                     <label for="plate_no" class="form-label">Plate Number</label>
                     <input type="text" name="plate_no" id="plate_no" class="form-control" required placeholder="AAA-9999" minlength="8" maxlength="8">
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="type" class="form-label">Type</label>
+                    <input type="text" name="type" id="type" class="form-control" placeholder="ex. Sedan" required>
                 </div>
                 <div class="mb-3 col-4">
                     <label for="brand" class="form-label">Brand</label>

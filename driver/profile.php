@@ -1,5 +1,5 @@
 <?php
-include '../backend/backend_passenger/declaredvb.php';
+include '../backend/passenger/declaredvb.php';
 ?>
 
 <!DOCTYPE html>

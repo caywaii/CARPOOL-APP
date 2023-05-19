@@ -1,7 +1,5 @@
 <?php
-
 include '../../includes/connection.php';
-session_start();
 $user_id = $_GET['user_id'];
 
 $sql = "SELECT * FROM users WHERE uID = '$user_id'";
@@ -26,12 +24,12 @@ $row = $result->fetch_assoc();
         <hr>
         <form action="profile_updprocess.php" method="post" class="row g-3">
             <!-- Username -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" readonly value="<?= $row['uUsername'] ?>">
             </div>
             <!-- Password -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="userpassword" class="form-label">Password</label>
                 <input type="text" class="form-control" id="userpassword" name="userpassword" value="<?= $row['uPassword'] ?>">
             </div>
@@ -41,13 +39,13 @@ $row = $result->fetch_assoc();
                 <input type="email" class="form-control" id="useremail" name="useremail"  readonly  value="<?= $row['uEmail'] ?>">
             </div>
             <!-- Name -->
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <label for="firstname" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="firstname" name="firstname" readonly value="<?= $row['uFirstName'] . ' ' . $row['uMiddleName'] . ' ' . $row['uLastName'] ?>">
             </div>
            
             <!-- Contact Number -->
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label for="contact" class="form-label">Contact Number/GCashNumber</label>
                 <input type="text" class="form-control" id="contact" name="contact" minlength="11" maxlength="11" readonly value="<?= $row['uContact']?>">
             </div>

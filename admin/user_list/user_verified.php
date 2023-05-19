@@ -1,8 +1,8 @@
 <?php
-
 include '../../includes/connection.php';
+include '../../includes/auth.php';
 // Retrieves Registered Users
-$sql = "SELECT * FROM users WHERE verify_status = '1'";
+$sql = "SELECT * FROM users WHERE verify_user = '1'";
 $result = $conn->query($sql);
 ?>
 
@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 <body>
     <hr>
     <h3 align="center">User Verification List</h3>
-
+    
         <table class="table-responsive" style="width:100%">
         <hr>
             <thead>
@@ -58,10 +58,11 @@ $result = $conn->query($sql);
                 endif;
                 ?>
             </tbody>
+           
         </table>
         <hr>
         <div align="right">
-            <a href="../index.php" class="btn btn-warning"> Back </a>
+        <a href="../index.php" class="btn btn-warning"> Back </a>
         </div>
   
 

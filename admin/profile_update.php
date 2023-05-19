@@ -1,5 +1,5 @@
 <?php 
-include '../backend/backend_admin/declaredvb.php';
+include '../backend/admin/declaredvb.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +18,12 @@ include '../backend/backend_admin/declaredvb.php';
         <hr>
         <form action="profile_updprocess.php" method="post" class="row g-3">
             <!-- Username -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" readonly value="<?= $username ?>" style="background-color:#d3d3d3;">
             </div>
             <!-- Password -->
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="userpassword" class="form-label">Password</label>
                 <input type="text" class="form-control" id="userpassword" name="userpassword" value="<?= $password ?>">
             </div>
@@ -33,21 +33,17 @@ include '../backend/backend_admin/declaredvb.php';
                 <input type="email" class="form-control" id="useremail" name="useremail"  readonly  value="<?= $email ?>" style="background-color:#d3d3d3;">
             </div>
             <!-- Name -->
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <label for="firstname" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="firstname" name="firstname" readonly value ="<?= $fname . ' ' . $mname . ' ' . $lname?>" style="background-color:#d3d3d3;">
             </div>
            
             <!-- Contact Number -->
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label for="contact" class="form-label">Contact Number</label>
                 <input type="text" class="form-control" id="contact" name="contact" minlength="11" maxlength="11" readonly value ="<?= $contact?>" style="background-color:#d3d3d3;">
             </div>
-            <!-- Gcash Number -->
-            <div class="col-md-5">
-                <label for="gcash" class="form-label">GCash Number</label>
-                <input type="text" class="form-control" id="gcash" name="gcash" minlength="11" maxlength="11" readonly value ="<?= $gcash?>" style="background-color:#d3d3d3;">
-            </div>
+          
 
             <!-- ID TYPE
             <div class="col-md-5">
