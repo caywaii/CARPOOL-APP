@@ -72,6 +72,8 @@ $result = $conn->query($sql);
                             </td>
                         </tr>
                     </form>
+
+
             <?php
                     $x++;
                 endwhile;

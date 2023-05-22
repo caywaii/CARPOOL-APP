@@ -60,7 +60,7 @@ $row = $result->fetch_assoc();
     <!-- Table for Cash Out Transaction -->
     <div class="container">
         <div class="container my-3 col-lg-6">
-            <h3 align="center"> Your Approved Cash In Transaction History</h3>
+            <h3 align="center"> Your Approved Cash Out Transaction History</h3>
             <hr>
         </div>
 

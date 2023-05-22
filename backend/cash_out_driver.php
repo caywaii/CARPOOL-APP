@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($modulo > 0 && $modulo <= 999) {
         $wholeNumber += 1;
         $wholeNumber *= 20;
+    }else{
+        $wholeNumber *= 20;
     }
 
     $resultCashOut = $amount + $wholeNumber;
