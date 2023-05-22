@@ -1,13 +1,19 @@
 <?php
 
-include '../includes/connection.php';
+include '../../includes/connection.php';
 date_default_timezone_set('Asia/Manila');
 $dateToday = date('Y-m-d');
 // Retrieves Registered Users
 
 
-$sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE bill_status = '1' AND billType='Cash In' AND DATE(billDate) = '$dateToday'";
+$sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE bill_status = '1' AND billType='Cash Out' AND DATE(billDate) = '$dateToday'";
 $result = $conn->query($sql);
+
+$sqlSum = "SELECT SUM(billAmount) AS 'TotalAmount', SUM(billProFee) AS 'TotalProFee' FROM billing INNER JOIN users ON billing.uID = users.uID WHERE bill_status = '1' AND billType='Cash Out' AND DATE(billDate) = '$dateToday'";
+$resultSum = $conn->query($sqlSum);
+$rowSum = $resultSum->fetch_assoc();
+$amount = $rowSum['TotalAmount'];
+$profee = $rowSum['TotalProFee'];
 ?>
 
 
@@ -24,18 +30,19 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-    <hr>
-    <h3 align="center">User Verification List <?= $dateToday?></h3>
-    
-        <table class="table-responsive" style="width:100%">
+    <div class="container">
         <hr>
+        <h3 align="center">Cash In Transactions</h3>
+
+        <table class="table-responsive" style="width:100%">
+            <hr>
             <thead>
                 <tr>
                     <th scope="col" class="text-center">#</th>
                     <th scope="col" class="text-center">Name</th>
                     <th scope="col" class="text-center">Amount</th>
-                    <th scope="col" class="text-center">Con Fee</th>
-                 
+                    <th scope="col" class="text-center">Pro Fee</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -49,11 +56,7 @@ $result = $conn->query($sql);
                             <th class="text-center"> <?= $x ?> </th>
                             <td class="text-center"> <?= $row['uFirstName'] . " " . $row['uLastName'] ?> </td>
                             <td class="text-center"> <?= $row['billAmount'] ?> </td>
-                            <td class="text-center"> <?= $row['billConFee'] ?> </td>
-        
-                            <td class="text-center">
-                                <a href="user_id.php?user_id=<?= $row['uID'] ?>" class="btn btn-success"> See More </a>
-                            </td>
+                            <td class="text-center"> <?= $row['billProFee'] ?> </td>
                         </tr>
                 <?php
                         $x++;
@@ -61,13 +64,28 @@ $result = $conn->query($sql);
                 endif;
                 ?>
             </tbody>
-           
+
         </table>
         <hr>
-        <div align="right">
-        <a href="../index.php" class="btn btn-warning"> Back </a>
+        <div class="container text">
+            <div class="row">
+                <div class="col" style="margin-left:580px; padding:-10px">
+                    <h4>Total:</h4>
+                </div>
+                <div class="col" style="margin-right:150px;" >
+                    <h4> <?= $amount ?> </h4>
+                </div>
+                <div class="col" >
+                    <h4> <?= $profee ?> </h4>
+                </div>
+            </div>
         </div>
-  
+        <div align="right">
+            <a href="../transaction.php" class="btn btn-warning"> Back </a>
+        </div>
+    </div>
+
+
 
 
 

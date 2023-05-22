@@ -31,6 +31,22 @@ include '../backend/passenger/declaredvb.php';
                 </div>
             </div>
 
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Cash In</h5>
+                    <p class="card-text">You may now Cash In buy tickets whenever you need to.</p>
+                    <a href="cash_in.php" class="btn btn-info">Transact</a>
+                </div>
+            </div>
+
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Cash Out</h5>
+                    <p class="card-text">You may Cash Out your Earnings in the carpool.</p>
+                    <a href="cash_out.php" class="btn btn-secondary">Transact</a>
+                </div>
+            </div>
+
         </div>
 
         <br>

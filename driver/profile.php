@@ -38,6 +38,10 @@ include '../backend/passenger/declaredvb.php';
                     <th scope="row">Address:</th>
                     <td><?= $street . ' ' . $barangay . ' ' . $city . ',' . $province?></td>
                 </tr>
+                <tr>
+                    <th scope="row">Total Tickets:</th>
+                    <td><?= $userBalance ?></td>
+                </tr>
             </tbody>
         </table>
         <a href="profile_update.php" class="btn btn-primary">Update</a>

@@ -2,7 +2,7 @@
 include '../../includes/connection.php';
 include '../../includes/auth.php';
 // Retrieves Pending Car Approval
-$sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE bill_status = 0;";
+$sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE bill_status = 0 AND billType='Cash In';";
 $result = $conn->query($sql);
 ?>
 

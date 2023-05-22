@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "";
 $password = "";
 $database = "carpool";
-$home = "http://localhost/carpool-draft";
+$home = "http://localhost/carpool-final";
 
 //Prepared Hostinger
 

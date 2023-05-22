@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result->num_rows > 0) {
         $_SESSION['status'] = "Existing Plate Number";
-        header('Location ' . $home . '/driver/car_register.php');
+        header('Location:' . $home . '/driver/car_register.php');
         return;
     }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result->num_rows > 0) {
         $_SESSION['status'] = "Existing Vehicle Identity Number";
-        header('Location ' . $home . "/driver/car_register.php");
+        header('Location: ' . $home . "/driver/car_register.php");
         return;
     }
 

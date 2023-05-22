@@ -35,7 +35,7 @@ $result = $conn->query($sql);
         ?>
         <h3 align="center">Car Register</h3>
         <hr>
-        
+
         <!-- Car Registration -->
         <form action="../backend/car_register.php" method="post">
             <div class="row">
@@ -88,10 +88,11 @@ $result = $conn->query($sql);
     </div>
     <hr>
     <!-- Table for Car Registration -->
-    <div class="container my-3 col-lg-6">
-        <h3 align="center"> Registered Cars </h3>
-        <hr>
-    </div>
+    <div class="container">
+        <div class="container my-3 col-lg-6">
+            <h3 align="center"> Registered Cars </h3>
+            <hr>
+        </div>
 
         <table class="table-responsive" style="width:100%">
             <thead>
@@ -103,7 +104,7 @@ $result = $conn->query($sql);
                     <th scope="col" class="text-center">Brand</th>
                     <th scope="col" class="text-center">Year</th>
                     <th scope="col" class="text-center">Chassis</th>
-                    <th scope="col" class="text-center">Actions</th>
+                    <th scope="col" class="text-center">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -126,7 +127,7 @@ $result = $conn->query($sql);
                                 <?php
                                 if ($row['verify_car'] == 3) :
                                 ?>
-                                    Rejected 
+                                    Rejected
 
                                 <?php elseif ($row['verify_car'] == 0) : ?>
                                     Pending
@@ -144,11 +145,8 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
+    </div>
 
-
-
-
-  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 

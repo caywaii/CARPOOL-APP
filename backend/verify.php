@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 
     //UPDATE
-    $update_query = "UPDATE users SET verify_user='1' WHERE uEmail = '$email'";
+    $update_query = "UPDATE users SET verify_user='1', uBalance=10 WHERE uEmail = '$email'";
     $result = $conn->query($update_query);
 
     $_SESSION['status'] = "Your email is now verified! You may now login to your account.";

@@ -55,7 +55,7 @@ $conn->close();
  </head>
  <body>
  <h2>Welcome!</h2>
- <p>Your Cashed In Transaction is now Verified by the Admin! Please do refresh or log in again to see</p>
+ <p>Your Cashed In Transaction is rejected, it seems that you have incorrect GCash Number or GCash Reference Number.</p>
  <a id="verify" href="' . $link . '">Click this Link!</a>
  <p>Thank You!</p>
  </body>

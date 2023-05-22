@@ -1,7 +1,7 @@
 <?php
 
 include '../../includes/connection.php';
-session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -9,13 +9,16 @@ require '../../backend/phpmailer/src/Exception.php';
 require '../../backend/phpmailer/src/PHPMailer.php';
 require '../../backend/phpmailer/src/SMTP.php';
 
-$billing_id = $_GET['billing_id'];
-
+$billing_id = $_GET['billid'];
+$reference = $_GET['refer'];
+$user_id = $_GET['userid'];
 //Selecting Users
 
 $sql = "SELECT * FROM billing INNER JOIN users ON billing.uID = users.uID WHERE billing.billID = '$billing_id'";
 $result = $conn->query($sql);
 
+$sqlReference = "UPDATE billing SET billGCashReference = $reference WHERE billID = '$billing_id'";
+$referenceResult = $conn->query($sqlReference);
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
 
@@ -31,19 +34,30 @@ if($result->num_rows > 0){
         $barangay = $row['uBarangay'];
         $city = $row['uCity'];
         $province = $row['uProvince'];
-       
+      
         
         $amount = $row['billAmount'];
-        $deduct = $row['billAmount'] - $row['billConFee'];
     }
 }
+
+$wholeNumber = floor($amount/1000); //get the whole number
+$modulo = $amount % 1000;
+if($modulo > 0 && $modulo <= 999){
+    $wholeNumber += 1;
+    $wholeNumber *= 20;
+}
+
+$resultCashOut = $amount + $wholeNumber;
 
 // Prepared Statement & Binding (Avoid SQL Injections)
 $stmnt = $conn->prepare("UPDATE billing SET bill_status = '1' WHERE billID='$billing_id'");
 $stmnt->execute();
 
+// Update Cash Out
+$stmnt = $conn->prepare("UPDATE billing SET billProFee = '$wholeNumber' WHERE billID='$billing_id' ");
+$stmnt->execute();
 // Update User Type in Users Table
-$stmnt = $conn->prepare("UPDATE users INNER JOIN billing ON billing.uID = users.uID SET uBalance = uBalance + '$deduct' WHERE billID = '$billing_id'");
+$stmnt = $conn->prepare("UPDATE users INNER JOIN billing ON billing.uID = users.uID SET uBalance = uBalance - '$resultCashOut' WHERE billID = '$billing_id'");
 //$stmnt = $conn->prepare("UPDATE users INNER JOIN billing ON billing.uID = users.uID SET uBalance = uBalance + '$amount' WHERE billID = '$billing_id'");
 $stmnt->execute();
 $stmnt->close();
@@ -61,7 +75,7 @@ $conn->close();
  </head>
  <body>
  <h2>Welcome!</h2>
- <p>Your Cashed In Transaction is now Verified by the Admin! Please do refresh or log in again to see</p>
+ <p>Your Cashed Out Transaction is now Verified by the Admin! Please do refresh or log in again to see</p>
  <a id="verify" href="' . $link . '">Click this Link!</a>
  <p>Thank You!</p>
  </body>
@@ -86,7 +100,7 @@ $conn->close();
  $mail->send();
 
 $_SESSION['status'] = "Succesfully Verified";
-header('Location: ' . $home . '/admin/cash_in/cash_in_list.php');
+header('Location: ' . $home . '/admin/cash_out/cash_out_list.php');
 
 
 

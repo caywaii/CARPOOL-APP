@@ -33,6 +33,7 @@ if($result->num_rows > 0){
     }
 }
 
+
 // Prepared Statement & Binding (Avoid SQL Injections)
 $stmnt = $conn->prepare("UPDATE passenger SET verify_driver = '1' WHERE pdID='$pass_id'");
 $stmnt->execute();

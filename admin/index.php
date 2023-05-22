@@ -54,12 +54,21 @@ include '../backend/admin/declaredvb.php';
                     </div>
                 </div>
 
-                <!-- Verify Transaction Type -->
+                <!-- Verify Transaction Cash In Type -->
                 <div class="card m-3" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Verify Transaction</h5>
-                        <p class="card-text">You may now assure the Transactions of the users.</p>
+                        <h5 class="card-title">Verify Cash In </h5>
+                        <p class="card-text">You may now assure the Cash In Transactions of the users.</p>
                         <a href="cash_in/cash_in_list.php" class="btn btn-primary">Verify</a>
+                    </div>
+                </div>
+
+                 <!-- Verify Transaction Cash Out Type -->
+                 <div class="card m-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Verify Cash Out </h5>
+                        <p class="card-text">You may now assure the Cash Out Transactions of the users.</p>
+                        <a href="cash_out/cash_out_list.php" class="btn btn-primary">Verify</a>
                     </div>
                 </div>
 
@@ -68,7 +77,7 @@ include '../backend/admin/declaredvb.php';
                     <div class="card-body">
                         <h5 class="card-title">Transaction Report</h5>
                         <p class="card-text">See all the Transaction made by the Passengers/Driver.</p>
-                        <a href="transaction_report.php" class="btn btn-warning">Look</a>
+                        <a href="transaction.php" class="btn btn-warning">Look</a>
                     </div>
                 </div>
             </div>
